@@ -19,9 +19,10 @@ requirements:
   build:
     - {{ compiler('c') }}
   host:
-    - python
-    - setuptools
     - numpy
+    - pytest-runner
+    - python
+    - setuptools        
   run:
     - pandas >=0.20
     - python
