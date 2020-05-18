@@ -1,5 +1,5 @@
 {% set name = "monetdblite" %}
-{% set version = "0.6.3" %}
+{% set version = "0.6.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/hannesmuehleisen/MonetDBLite-Python/archive/v{{ version }}.tar.gz
-  sha256: 6941f1369f06cd80c5246ae59c0e865f126c15660f333506381af2ed7054762e
+  sha256: 146577533cc0a0f2ebb06dddba43edc6c969f3919571c277330ce8633d6d6d7f
 
 build:
   # skippping on win-py27 due to missing 'stdint.h' header: https://ci.appveyor.com/project/conda-forge/staged-recipes/builds/21103611
-  skip: True  # [win and py27]
+  skip: true  # [win and py27]
   number: 0
-  script: "{{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt"
+  script: {{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
@@ -22,7 +22,7 @@ requirements:
     - numpy
     - pytest-runner
     - python
-    - setuptools        
+    - setuptools
   run:
     - pandas >=0.20
     - python
@@ -38,7 +38,7 @@ about:
   license: MPL-2.0
   license_family: OTHER
   license_file: LICENSE.txt
-  summary: 'MonetDBLite is a serverless SQL database that runs inside of your Python process and does not require the installation of any external software.'
+  summary: MonetDBLite is a serverless SQL database that runs inside of your Python process and does not require the installation of any external software.
 
   # The remaining entries in this section are optional, but recommended
   description: |
